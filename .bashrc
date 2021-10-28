@@ -117,3 +117,5 @@ if ! shopt -oq posix; then
 fi
 
 PS1="$"
+
+alias gap='sudo ~/dotfiles/git-auto-push.sh'
