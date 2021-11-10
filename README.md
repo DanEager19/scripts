@@ -1,2 +1,2 @@
-# scripts-and-configs
-Just a repo of my config files and automation scripts
+# scripts
+Just a repo of my automation scripts
