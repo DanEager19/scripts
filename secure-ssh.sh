@@ -15,6 +15,16 @@ param[13] = "ClientAliveCountMax"
 param[14] = "usePAM"
 file = "$1"
 
+generateKeys() {
+	mkdir ~/.ssh
+	chmod 700 ~/.ssh
+	read -p "Enter length of SSH key: " keyLen
+	ssh-keygen -b ${keyLen}
+	read -p "Enter username: " user
+	read -p "Enter server IP: " server
+	ssh-copy-id ${user}@${server}
+}
+
 changePort() {
 	read "Enter a port number: " port
 	echo "${param[2]} ${port}" >> "${file}"
@@ -40,8 +50,8 @@ secureSSH() {
 	echo "${param[5]}" >> ${file}
 	echo "Turned on Protocol 2."
 
-	echo "${param[6]} ues" >> ${file}
-	echo "Ignoring Rhosts on ues."
+	echo "${param[6]} to yes" >> ${file}
+	echo "Ignoring Rhosts on yes."
 }
 
 file = "/etc/ssh/sshd_config"
