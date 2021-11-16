@@ -15,6 +15,12 @@ param[13] = "ClientAliveCountMax"
 param[14] = "usePAM"
 file = "$1"
 
+grantRootOwnership() {
+	chown root:root /etc/ssh/sshd_config
+	chmod 600 /etc/ssh/sshd_config
+	systemctl restart sshd
+}
+
 generateKeys() {
 	mkdir ~/.ssh
 	chmod 700 ~/.ssh
@@ -26,10 +32,17 @@ generateKeys() {
 }
 
 changePort() {
-	read "Enter a port number: " port
-	echo "${param[2]} ${port}" >> "${file}"
+	read -p "Enter a port number: " port
+	echo "${param[2]} ${port}" >> ${file}
 	echo "Changed port number to ${port}."
 }
+
+authTries() {
+	read -p "Enter max authentication tries: " maxAuth
+	echo "${param[10]} ${maxAuth}" >> ${file}
+	echo "Set max auth tries to ${maxAuth}."
+}
+
 secureSSH() {
 	for PARAM in ${param[@]}
 		do
@@ -39,7 +52,7 @@ secureSSH() {
 	echo "${param[1]} no" >> ${file}
 	echo "Turned off Root SSH connection."
 	
-	changePort()
+	changePort
 
 	echo "${param[3]} inet" >> ${file}
 	echo "Changed connection type to IPv4"
@@ -52,12 +65,19 @@ secureSSH() {
 
 	echo "${param[6]} to yes" >> ${file}
 	echo "Ignoring Rhosts on yes."
+
+	echo "${param[7]} no" >> ${file}
+	echo "Turned off host based authentication."
+
+	echo "${param[8]} no" >> ${file}
+	echo "Turned off empty passwords."
+
+	echo "${param[9]} no" >> ${file}
+	echo "Turned off X11 forwarding."
+
+	authTries
 }
 
 file = "/etc/ssh/sshd_config"
 
-secureSSH()
-
-chown root:root /etc/ssh/sshd_config
-chmod 600 /etc/ssh/sshd_config
-systemctl restart sshd
+secureSSH

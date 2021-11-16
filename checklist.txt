@@ -1,4 +1,8 @@
 Linux
+	Update the linux kernal 
+		sudo apt update && sudo apt upgrade
+		uname -sr
+		sudo apt dist-upgrade
 	Enable automatic updates
 		sudo apt install unattended-upgrades
 		sudo dpkg-reconfigure --priority=low unattended-upgrades
