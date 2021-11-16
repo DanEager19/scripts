@@ -10,6 +10,7 @@ Linux
 		adduser [USER]
 		usermod -aG sudo [USER]
 	ssh keys
+		cat /home/*/.ssh/authorized_keys
 		mkrdir ~/.ssh && chmod 700 ~/.ssh
 		ssh-keygen -b 4096
 		ssh-copy-id [USER]@[SERVER]
@@ -32,6 +33,7 @@ Linux
 		chown root:root /etc/ssh/sshd_config
 		chmod 600 /etc/ssh/sshd_config
 		sudo systemctl restart sshd
+		- Pubkey Authentication no
 		-test ssh (use port number with -p)
 	Enable firewall
 		sudo ss -tupln
@@ -73,6 +75,10 @@ Linux
 		vim /etc/selinux/config
 		SELINUX=enforcing
 	Setup permissions
+		- check cron jobs
+			/etc/crontab
+			/etc/cron.*/
+			/var/spool/cron/crontabs
 		chown root:root /etc/anacrontab
 		chmod og-rwx /etc/anacrontab
 		chown root:root /etc/crontab
@@ -87,5 +93,19 @@ Linux
 		chmod og-rwx /etc/cron.monthly
 		chown root:root /etc/cron.d
 		chmod og-rwx /etc/cron.d
-
-hi
+	File Ownership
+		Files owned by root should not be writeable.
+		Files in /etc/ should not be writable
+		Sensitive files should not be readable
+		Files outside [/usr]/bin, [/usr]/lib should not be executable
+		Files outside /home, /tmp, should not be user owned.
+		chown user:group /path/
+		chmod [u/g/o] [+/-] [r/w/x] /apth
+	SUID Binaries
+		find / -type f -perm -4000
+		-rwsr-sr-x
+		chmod -s /path
+	Check for users
+		for u in $(cat /etc/passwd | cut -d':' -f1); do
+			echo "$u:password" | chpasswd
+		done

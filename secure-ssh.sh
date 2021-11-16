@@ -21,16 +21,6 @@ grantRootOwnership() {
 	systemctl restart sshd
 }
 
-generateKeys() {
-	mkdir ~/.ssh
-	chmod 700 ~/.ssh
-	read -p "Enter length of SSH key: " keyLen
-	ssh-keygen -b ${keyLen}
-	read -p "Enter username: " user
-	read -p "Enter server IP: " server
-	ssh-copy-id ${user}@${server}
-}
-
 changePort() {
 	read -p "Enter a port number: " port
 	echo "${param[2]} ${port}" >> ${file}
