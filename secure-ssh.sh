@@ -1,5 +1,5 @@
 #!/bin/bash
-param[1] = "PermitRootLogin"
+param[1]="PermitRootLogin"
 param[2] = "Port"
 param[3] = "AddressFamily"
 param[4] = "PasswordAuthentication"
@@ -63,11 +63,25 @@ secureSSH() {
 	echo "Turned off empty passwords."
 
 	echo "${param[9]} no" >> ${file}
-	echo "Turned off X11 forwarding."
+	echo "Turned off X11 forwarding." 
 
 	authTries
+
+	echo "${param[11]} aes128-ctr, aes192-ctr, aes256" >> ${file}
+	echo "Improved Encryption."
+
+	echo "${param[12]} 900" >> ${file}
+	echo "ClientAliveInterval set to 900"
+
+	echo "${param[13]} 0" >> ${file}
+	echo "Set amount of connections to max 0"
+
+	echo "${param[14]} yes" >> ${file}
+	echo "Enabled PAM"
 }
 
-file = "/etc/ssh/sshd_config"
+file = "$HOME/file.txt"
+
+sudo su
 
 secureSSH
