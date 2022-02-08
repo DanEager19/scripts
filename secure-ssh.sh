@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 param[1]="PermitRootLogin"
 param[2] = "Port"
 param[3] = "AddressFamily"
