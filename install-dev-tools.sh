@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo apt install python3 pip
+
 #Install Node
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -yf nodejs
