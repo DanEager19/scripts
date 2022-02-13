@@ -43,15 +43,10 @@ sudo systemctl restart nginx
 sudo cat >> /etc/nginx/sites-enabled/default << EOF
 server {
     listen 80;
-    server_name vault.bowlerdesign.tech;
+    server_name passwd.deager.dev;
 
     location / {
         proxy_pass http://127.0.0.1:8000; # bitwarden server address
     }
 }
 EOF
-
-sudo snap install core; sudo snap refresh core
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
-sudo certbot --nginx
