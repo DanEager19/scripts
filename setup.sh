@@ -5,7 +5,7 @@ sudo apt update
 sudo apt dist-upgrade
 
 #Install apps/tools from apt
-sudo apt-get install htop neovim ufw net-tools wget cron curl git grep tmux gcc g++ sed 
+sudo apt-get install htop neovim ufw net-tools wget cron curl git grep tmux gcc g++ sed openssh
 
 #Install Python
 sudo apt-get install python3 pip
