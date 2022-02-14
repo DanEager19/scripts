@@ -1,10 +1,18 @@
 #!/bin/sh
 
-sudo apt install python3 pip
+#Upgrade system
+sudo apt update
+sudo apt dist-upgrade
+
+#Install apps/tools from apt
+sudo apt-get install htop neovim ufw net-tools wget cron curl git grep tmux gcc g++ sed 
+
+#Install Python
+sudo apt-get install python3 pip
 
 #Install Node
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -yf nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+nvm install --lts
 
 #Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -25,3 +33,8 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt update
 sudo apt install code
+
+#Setup Git
+git config --global user.name "Daniel Eager"
+git config --global user.email "daniel@deager.dev"
+git config --global credential.helper cache 
