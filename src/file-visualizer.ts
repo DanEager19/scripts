@@ -4,7 +4,12 @@ import fs from 'fs';
 import path from 'path';
 import inquirer from 'inquirer';
 
-let size = 0;
+interface fileInfo {
+    name: string,
+    extension: string | undefined,
+    size: number,
+}
+
 async function askDir() {
     const answer = await inquirer.prompt({
         name: 'directory',
@@ -19,20 +24,31 @@ async function askDir() {
 }
 
 
-async function fileWalker(dir: any) {
+async function fileWalker(dir: string) {
+    const fileTypes: fileInfo[] = [];
     const files = fs.readdirSync(dir);
+    console.log(chalk.blue(dir));
 
     for (let i in files){
-        const filepath = dir + '/' + files[i];
+        const filepath = path.join(dir, files[i]);
         const stats = fs.statSync(filepath);
 
         if(stats.isDirectory()) {
-            console.log(chalk.blue(filepath));
-            await fileWalker(filepath)
+            await fileWalker(filepath) 
         } else {
-            console.log(chalk.greenBright(files[i]));
-        }    
+            console.log(chalk.greenBright(filepath));
+            fileTypes.push({
+                name: filepath,
+                extension: filepath.split('.').pop(),
+                size: stats.size,
+            })  
+        }
     }
+    return fileTypes;
 }
 
-await fileWalker(await askDir());
+console.log(await fileWalker(await askDir()));
+
+// for(let i = 0; i < 10; i++) {
+//     console.log(chalk.red(' A '.repeat(10)));
+// }
