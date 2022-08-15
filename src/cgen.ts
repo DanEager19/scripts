@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import fs from 'fs';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
