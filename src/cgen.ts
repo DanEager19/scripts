@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env python3
 import fs from 'fs';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
