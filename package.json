@@ -6,18 +6,23 @@
   "main": "./src/index.ts",
   "scripts": {
     "index": "tsc && node ./dist/index.js",
-    "fv": "tsc && node ./dist/file-visualizer.js "
+    "fv": "tsc && node ./dist/file-visualizer.js ",
+    "cgen": "tsc && node ./dist/cgen"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/chalk-animation": "^1.6.1",
+    "@types/figlet": "^1.5.4",
+    "@types/fs-extra": "^9.0.13",
+    "@types/gradient-string": "^1.1.2",
     "@types/inquirer": "^9.0.0",
     "@types/node": "^18.7.3",
     "chalk": "^5.0.1",
     "chalk-animation": "^2.0.2",
     "figlet": "^1.5.2",
     "findit": "^2.0.0",
+    "fs-extra": "^10.1.0",
     "gradient-string": "^2.0.1",
     "inquirer": "^9.1.0",
     "nanospinner": "^1.1.0",
