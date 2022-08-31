@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-#./scrapeLink url regex
-
 from bs4 import BeautifulSoup
 import requests
 import re
 import sys
+
+#./scrapeLink url regex
 
 response = requests.get(sys.argv[1])
 
