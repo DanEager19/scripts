@@ -29,6 +29,7 @@ git clone https://github.com/radareorg/radare2
 
 #Cutter
 wget $( scrapers/cutter.py )
+chmod +rx ./cutter*.deb
 sudo apt install ./cutter*.deb -y
 
 #Ghidra
@@ -52,5 +53,6 @@ echo "export PATH=\"$HOME/.cargo/bin:$PATH\"" >> $HOME/.bashrc
 
 #BinDiff
 wget $( scrapers/bindiff.py )
+chmod +rx ./bindiff*.deb 
 sudo apt install ./bindiff*.deb -y
 /opt/bindiff/libexec/bindiff_config_setup --per_user
