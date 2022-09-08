@@ -4,6 +4,12 @@ import inquirer from 'inquirer';
 import { createSpinner } from 'nanospinner';
 import { outputFile } from 'fs-extra';
 
+const makefile = `all:
+\tgcc -m32 src/main.c -o run.bin
+
+clean:
+\trm run.bin`;
+
 const returnZero = `{
         
     return 0;
@@ -62,14 +68,30 @@ async function generateBoilerplate(): Promise<void> {
     cmdArgs ? template += '\nint main(int argc, char *argv[])\n' : template += '\nint main()\n';
     
     template += returnZero
-    
-    if (fs.existsSync(`${projectName}/main.c`)) {
+
+    if (fs.existsSync(`${projectName}/Makefile`)) {
+        spinner.error({
+            text: chalk.redBright('[x] - Makefile already exists!')
+        });
+        process.exit(1);
+    } else {    
+        await outputFile(`${projectName}/Makefile`, makefile, (e) => {
+            if (e) {
+                spinner.error({
+                    text: chalk.redBright(`[x] - ${e}`)
+                });
+                process.exit(1);
+            }
+        });
+    }    
+
+    if (fs.existsSync(`${projectName}/src/main.c`)) {
         spinner.error({
             text: chalk.redBright('[x] - Project already exists!')
         });
         process.exit(1);
     } else {    
-        await outputFile(`${projectName}/main.c`, template, (e) => {
+        await outputFile(`${projectName}/src/main.c`, template, (e) => {
             if (e) {
                 spinner.error({
                     text: chalk.redBright(`[x] - ${e}`)
