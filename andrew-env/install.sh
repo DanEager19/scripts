@@ -1,17 +1,27 @@
 #!/bin/bash
+#Run with Sudo
+apt install openssh-server openssh-client nginx vsftpd gcc build-essential daemonize -y
 
-sudo apt install open-ssh nginx vsftpd -y
+systemctl enable ssh.service && systemctl start ssh.service
 
-sudo systemctl enable nginx
-sudo systemctl start nginx
+cp ./nginx.conf /etc/nginx/conf.d
+mkdir /root/web
+cp ./webpage.html /root/web/webpage.html
+systemctl enable nginx && systemctl start nginx
+
 
 #Docker install
-sudo apt-get install ca-certificates gnupg lsb-release curl -y
-sudo mkdir -p /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+apt-get install ca-certificates gnupg lsb-release curl -y
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+chmod a+r /etc/apt/keyrings/docker.gpg
+apt-get update
+apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
-sudo cp passdump.py /etc/cron.hourly
+cp passdump.py /etc/cron.hourly
+
+gcc process0.c -o h@ck3d-pr0c3ss
+cp ./h@ck3d-pr0c3ss /root/h@ck3d-pr0c3ss
+
+daemonize /root/h@ck3d-pr0c3ss
