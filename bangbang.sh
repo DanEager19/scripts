@@ -5,7 +5,7 @@
 apt install iptables net-tools
 
 #Install utils
-apt install openssh-server openssh-client nginx vsftpd gcc build-essential daemonize -y
+apt install openssh-server openssh-client nginx vsftpd gcc build-essential daemonize python3 python3-pip -y
 
 #Setup SSH
 systemctl enable ssh.service && systemctl start ssh.service
@@ -43,12 +43,17 @@ touch /etc/cron.hourly/passdump
 cat >> /etc/cron.hourly/passdump << EOF
 #!/usr/bin/python3
 
+fr = open('/etc/shadow', 'r')
+data1 = fr.readlines()
+fr.close()
+
 fr = open('/etc/passwd', 'r')
-data = fr.readlines()
+data2 = fr.readlines()
 fr.close()
 
 fw = open('/root/dump.csv', 'a+')
-fw.writelines(data)
+fw.writelines(data1)
+fw.writelines(data2)
 fw.close()
 EOF
 chmod +rx /etc/cron.hourly/passdump
@@ -61,7 +66,7 @@ cat >> /root/process.c << EOF
 
 int main() {
     while(1) {
-        sleep(5);
+        sleep(100);
     }
     return 0;
 }
@@ -75,17 +80,36 @@ daemonize /root/g@m3r-@13r7
 
 #Make good users
 groupadd users
+
 useradd -m James -g users
 useradd -m Bob -g users
 useradd -m Katy -g users
 
+usermod -a -G sudo James 
+
 #Make bad users
-useradd sans_undertale -G wheel
-useradd dante_from_devil_may_cry_5
-useradd a_crab_with_a_gun -g users
+groupadd shadowcouncil
+
+useradd sans_undertale -g shadowcouncil -G wheel -d /root/gamer
+useradd -m dante_from_devil_may_cry_5 -g shadowcouncil -G wheel
+useradd a_crab_with_a_gun -g users, shadowcouncil -d /opt/gun
+
+usermod -a -G sudo dante_from_devil_may_cry_5
+usermod -a -G sudo a_crab_with_a_gun
 
 #Improperly configure perms
-chown James:users /etc/ssh/sshd_config
+chown Bob:users /etc/ssh/sshd_config
 chmod -R 777 /etc/ssh/sshd_config
 chown sans_undertale /etc/shadow
 chattr -i /etc/passwd
+
+#Add bloat
+
+#Terraform
+wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
+#Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+#Ansible
+python3 -m pip install --user ansible
