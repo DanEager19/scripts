@@ -1,6 +1,9 @@
 #!/bin/bash
 #Run with Sudo
 
+#Install tools for Kramer
+apt install iptables net-tools
+
 #Install utils
 apt install openssh-server openssh-client nginx vsftpd gcc build-essential daemonize -y
 
@@ -8,18 +11,8 @@ apt install openssh-server openssh-client nginx vsftpd gcc build-essential daemo
 systemctl enable ssh.service && systemctl start ssh.service
 
 #Setup NGiNX
-touch /etc/nginx/conf.d/webserver.conf
-cat >> /etc/nginx/conf.d/webserver.conf << EOF
-server {  
-    listen 80;
-
-    server_name webserver;
-    root /root/web;
-    index webpage.html;
-}
-EOF
-mkdir /root/web
-cat >> /root/web/webpage.html << EOF
+rm /var/www/index.html
+cat >> /var/www/index.html << EOF
 <!DOCTYPE html>
 <html>
     <body>
@@ -73,8 +66,12 @@ int main() {
     return 0;
 }
 EOF
-gcc /root/process.c -o h@ck3d-pr0c3ss
+gcc /root/process.c -o /root/h@ck3d-pr0c3ss
+gcc /root/process.c -o /root/B@D-B01
+gcc /root/process.c -o /root/g@m3r-@13r7
 daemonize /root/h@ck3d-pr0c3ss
+daemonize /root/B@D-B015
+daemonize /root/g@m3r-@13r7
 
 #Make good users
 groupadd users
@@ -90,3 +87,5 @@ useradd a_crab_with_a_gun -g users
 #Improperly configure perms
 chown James:users /etc/ssh/sshd_config
 chmod -R 777 /etc/ssh/sshd_config
+chown sans_undertale /etc/shadow
+chattr -i /etc/passwd
