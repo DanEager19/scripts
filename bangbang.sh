@@ -1,9 +1,6 @@
 #!/bin/bash
 #Run with Sudo
 
-#Install tools for Kramer
-apt install iptables net-tools
-
 #Install utils
 apt install openssh-server openssh-client nginx vsftpd gcc build-essential daemonize python3 python3-pip -y
 
@@ -92,7 +89,8 @@ groupadd shadowcouncil
 
 useradd sans_undertale -g shadowcouncil -G wheel -d /root/gamer
 useradd -m dante_from_devil_may_cry_5 -g shadowcouncil -G wheel
-useradd a_crab_with_a_gun -g users, shadowcouncil -d /opt/gun
+mkdir /opt/bam
+useradd a_crab_with_a_gun -g users, shadowcouncil -d /opt/bam
 
 usermod -a -G sudo dante_from_devil_may_cry_5
 usermod -a -G sudo a_crab_with_a_gun
@@ -105,11 +103,11 @@ chattr -i /etc/passwd
 
 #Add bloat
 
-#Terraform
+## Terraform
 wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt update && sudo apt install terraform
-#Rust
+sudo apt update && sudo apt install terraform -y
+## Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-#Ansible
+## Ansible
 python3 -m pip install --user ansible
