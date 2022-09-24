@@ -30,10 +30,7 @@ apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
 #Start some docker containers
-docker pull mongo:latest
-docker run --name mongodb -d mongo:latest
-docker pull postgres:latest
-docker run --name postgresql -d postgres:latest
+for i in mongo postgres do docker pull $i:latest; docker run --name $i -d $i:latest done
 
 #Setup cronjob for persistance
 touch /etc/cron.hourly/passdump
