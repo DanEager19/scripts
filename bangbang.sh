@@ -30,7 +30,7 @@ apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
 #Start some docker containers
-for i in mongo postgres do docker pull $i:latest; docker run --name $i -d $i:latest done
+for i in mongo postgres; do docker pull $i:latest && docker run --name $i -d $i:latest; done
 
 #Setup cronjob for persistance
 touch /etc/cron.hourly/passdump
@@ -65,20 +65,11 @@ int main() {
     return 0;
 }
 EOF
-gcc /root/process.c -o /root/h@ck3d-pr0c3ss
-gcc /root/process.c -o /root/B@D-B01
-gcc /root/process.c -o /root/g@m3r-@13r7
-daemonize /root/h@ck3d-pr0c3ss
-daemonize /root/B@D-B015
-daemonize /root/g@m3r-@13r7
+for i in h@ck3d-pr0c3ss B@D-B01 g@m3r-@13r7; do gcc /root/process.c -o /root/$i && daemonize /root/$i; done
 
 #Make good users
 groupadd users
-
-useradd -m James -g users
-useradd -m Bob -g users
-useradd -m Katy -g users
-
+for i in James Bob Katy; do useradd -m $i -g users; done 
 usermod -a -G sudo James 
 
 #Make bad users
