@@ -18,3 +18,6 @@ HTTP (Hypertext Transfer Protocol) server
 PostrgreSQL database
 MongoDB database
 ```
+
+## Default Password
+`GamerAlert`

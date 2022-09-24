@@ -95,6 +95,11 @@ useradd a_crab_with_a_gun -g users, shadowcouncil -d /opt/bam
 usermod -a -G sudo dante_from_devil_may_cry_5
 usermod -a -G sudo a_crab_with_a_gun
 
+#Change passwords
+password=GamerAlert 
+echo -e "James:$password\nBob:$password\nKaty:$password\n" | sudo chpasswd
+echo -e "a_crab_with_a_gun:$password\ndante_from_devil_may_cry_5:$password\nsans_undertale:$password\n" | sudo chpasswd
+
 #Improperly configure perms
 chown Bob:users /etc/ssh/sshd_config
 chmod -R 777 /etc/ssh/sshd_config
