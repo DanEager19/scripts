@@ -8,16 +8,28 @@ apt install openssh-server openssh-client nginx vsftpd gcc build-essential daemo
 systemctl enable ssh.service && systemctl start ssh.service
 
 #Setup NGiNX
-rm /var/www/index.html
-cat >> /var/www/index.html << EOF
+rm /var/www/html/index.html
+cat >> /var/www//html/index.html << EOF
 <!DOCTYPE html>
 <html>
+    <title>Hello!</title>
     <body>
         <h1>A webserver :D</h1>
         <p>Hi! UwU</p>
     </body>
 </html> 
 EOF
+cat >> /etc/nginx/sites-enabled/default << EOF
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+
+    server_name _;
+}
+EOF
+
 systemctl enable nginx && systemctl start nginx
 
 #Docker install
