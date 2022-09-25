@@ -15,8 +15,6 @@ The primary services that must be maintained are:
 FTP (File Transfer Protocol) server
 SSH (Secure Shell) server
 HTTP (Hypertext Transfer Protocol) server
-PostrgreSQL database
-MongoDB database
 ```
 
 ## Default Password

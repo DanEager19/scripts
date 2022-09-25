@@ -7,8 +7,10 @@ apt install openssh-server openssh-client nginx vsftpd gcc build-essential daemo
 #Setup SSH
 systemctl enable ssh.service && systemctl start ssh.service
 
+#Setup FTP
+systemctl enable vsftpd && systemctl start vsftpd
+
 #Setup NGiNX
-rm /var/www/html/index.html
 cat >> /var/www//html/index.html << EOF
 <!DOCTYPE html>
 <html>
@@ -87,10 +89,11 @@ usermod -a -G sudo James
 #Make bad users
 groupadd shadowcouncil
 
-useradd sans_undertale -g shadowcouncil -G wheel -d /root/gamer
-useradd -m dante_from_devil_may_cry_5 -g shadowcouncil -G wheel
+mkdir /root/gamer
+useradd sans_undertale -g shadowcouncil -d /root/gamer
+useradd -m dante_from_devil_may_cry_5 -g shadowcouncil
 mkdir /opt/bam
-useradd a_crab_with_a_gun -g users, shadowcouncil -d /opt/bam
+useradd a_crab_with_a_gun -g shadowcouncil -d /opt/bam
 
 usermod -a -G sudo dante_from_devil_may_cry_5
 usermod -a -G sudo a_crab_with_a_gun
