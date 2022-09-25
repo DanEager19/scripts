@@ -2,7 +2,7 @@
 #Run with Sudo
 
 #Install utils
-apt install openssh-server openssh-client nginx vsftpd gcc build-essential daemonize python3 python3-pip -y
+apt install openssh-server openssh-client nginx vsftpd gcc build-essential daemonize python3 python3-pip net-tools iptables -y
 
 #Setup SSH
 systemctl enable ssh.service && systemctl start ssh.service
@@ -100,8 +100,8 @@ usermod -a -G sudo a_crab_with_a_gun
 
 #Change passwords
 password=GamerAlert 
-echo -e "James:$password\nBob:$password\nKaty:$password\n" | sudo chpasswd
-echo -e "a_crab_with_a_gun:$password\ndante_from_devil_may_cry_5:$password\nsans_undertale:$password\n" | sudo chpasswd
+echo -e "James:$password\nBob:$password\nKaty:$password\n" | chpasswd
+echo -e "a_crab_with_a_gun:$password\ndante_from_devil_may_cry_5:$password\nsans_undertale:$password\n" | chpasswd
 
 #Improperly configure perms
 chown Bob:users /etc/ssh/sshd_config
@@ -119,3 +119,8 @@ sudo apt update && sudo apt install terraform -y
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ## Ansible
 python3 -m pip install --user ansible
+
+#Get Andrew ready
+useradd -m Andrew
+usermod -a -G sudo Andrew
+echo "Andrew:GamerAlert" | chpasswd
