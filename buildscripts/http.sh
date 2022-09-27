@@ -1,8 +1,6 @@
 #!/bin/bash
 
-apt install openssh-server openssh-client nginx vsftpd -y
-
-#Setup NGiNX
+apt install nginx -y
 cat >> /var/www//html/index.html << EOF
 <!DOCTYPE html>
 <html>
@@ -25,4 +23,5 @@ server {
 }
 EOF
 
-for i in ssh.service vsftpd nginx; do systemctl enable $i && systemctl start $i; done
+systemctl enable nginx
+systemctl start nginx
