@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  flask:
+    container_name: flask
+    build: .
+    depends_on:
+      - redis
+    ports:
+      - 8000:5000
+    volumes:
+      - .:/code
+    environment:
+      FLASK_ENV: development 
+    networks:
+      vpcbr:
+        ipv4_address: 10.1.0.2
+  redis:
+    container_name: redis
+    image: redis:alpine
+    restart: always
+    networks:
+      vpcbr:
+        ipv4_address: 10.1.0.3
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.1.0.0/16
+          gateway: 10.1.0.1

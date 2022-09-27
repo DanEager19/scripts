@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  nodeserver:
+    container_name: nodeserver
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    depends_on:
+      - mongo
+    ports:
+      - '8000:8000'
+    restart: always
+    networks:
+      vpcbr:
+        ipv4_address: 10.2.0.2
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    networks:
+      vpcbr:
+        ipv4_address: 10.2.0.3
+  nginx:
+    container_name: webserver
+    restart: always
+    image: nginx:mainline-alpine
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - nodeserver
+    networks:
+      vpcbr:
+        ipv4_address: 10.2.0.4
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.2.0.0/16
+          gateway: 10.2.0.1
