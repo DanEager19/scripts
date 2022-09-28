@@ -3,7 +3,7 @@
 #Flush
 iptables -F
 
-# Inbound
+#Inbound
 iptables -A INPUT -i lo -j ACCEPT
 iptables -A OUTPUT -o lo -j ACCEPT
 
@@ -15,5 +15,5 @@ done
 
 iptables -P INPUT DROP
 
-# Outbound
+#Outbound
 iptables -P OUTPUT ACCEPT
