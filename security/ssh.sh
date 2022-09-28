@@ -1,4 +1,8 @@
 #!/bin/bash
+chown root:root /etc/ssh/sshd_config
+chmod 600 /etc/ssh/sshd_config
+systemctl restart sshd
+
 #Needs to be reworked.
 params=( "PermitRootLogin" "Port" "AddressFamily" "PasswordAuthentication" "Protocol2" "IgnoreRhosts" "HostBasedAtuhentication" "PermitEmptyPasswords" "X11Forwarding" "MaxAuthTries" "Ciphers" "ClientAliveInterval" "ClientAliveCountMax" "usePAM" )
 file="/etc/ssh/sshd_config"
