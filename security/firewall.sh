@@ -1,19 +1,25 @@
 #!/bin/bash
 
-#Flush
+# Flush
 iptables -F
 
-#Inbound
+# Allow loopback
 iptables -A INPUT -i lo -j ACCEPT
 iptables -A OUTPUT -o lo -j ACCEPT
 
-
+# Inbound
 iptables -A INPUT -m conntrack --cstate RELATED, ESTABLISHED -j ACCEPT
-for i in 21 22 80 443; do 
-    iptables -A INPUT -p tcp --dport $i -j ACCEPT; 
-done
+
+## Web 
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT 
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+iptables -A INPUT -p udp --dport 53 -j ACCEPT
+
+## Services
+iptables -A INPUT -p tcp --dport 21 -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 
 iptables -P INPUT DROP
 
-#Outbound
+# Outbound
 iptables -P OUTPUT ACCEPT

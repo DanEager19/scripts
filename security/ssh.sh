@@ -1,6 +1,4 @@
 #!/bin/bash
-chown root:root /etc/ssh/sshd_config
-chmod 600 /etc/ssh/sshd_config
 
 sed -i 's/^(\#)?PermitRootLogin (prohibit-password|yes|no)/PermitRootLogin yes\n/' /etc/ssh/sshd_config
 sed -i 's/^(\#)?PasswordAuthentication (yes|no)/PasswordAuthentication yes\n/' /etc/ssh/sshd_config
@@ -16,5 +14,8 @@ sed -i 's/^(\#)?MaxAuthTries ([0-9]+)$/MaxAuthTries 1\n/' /etc/ssh/sshd_config
 sed -i 's/^(\#)?HostBasedAuthentication (yes|no)/HostBasedAuthentication no\n/' /etc/ssh/sshd_config
 sed -i 's/^(\#)?UseDNS (yes|no)/UseDNS no\n/' /etc/ssh/sshd_config
 sed -i 's/^(\#)?PubkeyAuthentication (yes|no)/PubkeyAuthentication no\n/' /etc/ssh/sshd_config
+
+chown root:root /etc/ssh/sshd_config
+chmod 600 /etc/ssh/sshd_config
 
 systemctl restart sshd
