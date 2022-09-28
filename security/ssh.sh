@@ -1,7 +1,7 @@
 #!/bin/bash
 chown root:root /etc/ssh/sshd_config
 chmod 600 /etc/ssh/sshd_config
-systemctl restart sshd
+
 
 #Needs to be reworked.
 params=( "PermitRootLogin" "Port" "AddressFamily" "PasswordAuthentication" "Protocol2" "IgnoreRhosts" "HostBasedAtuhentication" "PermitEmptyPasswords" "X11Forwarding" "MaxAuthTries" "Ciphers" "ClientAliveInterval" "ClientAliveCountMax" "usePAM" )
@@ -25,4 +25,9 @@ echo "${params[12]} 900" >> $file
 echo "${params[13]} 0" >> $file
 echo "${params[14]} yes" >> $file
 
-#
+sed -i 's/^(\#)?PermitRootLogin (prohibit-password|yes|no)?/PermitRootLogin no'
+sed -i 's/^\#PermitEmptyPasswords (yes|no)/PermitEmptyPasswords no/' $file
+sed -i 's/^X11Forwarding (yes|no)/X11Forwarding no/' $file
+sed -i 's/^(\#)?AddressFamily (any)?/AddressFamily inet/'
+
+systemctl restart sshd
