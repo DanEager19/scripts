@@ -1,3 +1,5 @@
+#!/usr/bin/env ts-node
+
 import chalk from 'chalk';
 import chalkAnimation from 'chalk-animation';
 import fs from 'fs';
