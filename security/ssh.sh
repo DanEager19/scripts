@@ -7,7 +7,6 @@ sed -i 's/^(\#)?PasswordAuthentication (yes|no)/PasswordAuthentication yes/' $FI
 sed -i 's/^(\#)?PermitEmptyPasswords (yes|no)/PermitEmptyPasswords no/' $FILE
 sed -i 's/^(\#)?X11Forwarding (yes|no)/X11Forwarding no/' $FILE
 sed -i 's/^(\#)?AddressFamily (any|inet|inet6)/AddressFamily inet/' $FILE
-sed -i 's/^(\#)?PermitEmptyPasswords (yes|no)/PermitEmptyPasswords no/' $FILE
 sed -i 's/^(\#)?UsePAM (yes|no)/UsePAM yes/' $FILE
 sed -i 's/^(\#)?ClientAliveInterval ([0-9]+)$/ClientAliveInterval 900/' $FILE
 sed -i 's/^(\#)?ClientAliveCountMax ([0-9]+)$/ClientAliveCountMax 0/' $FILE
