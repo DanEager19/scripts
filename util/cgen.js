@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env node
 
 import fs from 'fs';
 import chalk from 'chalk';
@@ -19,7 +19,7 @@ const returnZero = `{
 
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
-async function askName(): Promise<string> {
+async function askName() {
     const answer = await inquirer.prompt({
         name: 'name',
         type: 'input',
@@ -32,7 +32,7 @@ async function askName(): Promise<string> {
     return answer.name;
 }
 
-async function askHeaders(): Promise<string> {
+async function askHeaders() {
     const answer = await inquirer.prompt({
         name: 'headers',
         type: 'input',
@@ -45,7 +45,7 @@ async function askHeaders(): Promise<string> {
     return answer.headers;
 }
 
-async function askCmdArgs(): Promise<boolean> {
+async function askCmdArgs() {
     const answer = await inquirer.prompt({
         name: 'cmdArgs',
         type: 'confirm',
@@ -55,7 +55,7 @@ async function askCmdArgs(): Promise<boolean> {
     return answer.cmdArgs;
 }
 
-async function generateBoilerplate(): Promise<void> {
+async function generateBoilerplate() {
     let template = '';
     const projectName = await askName();
 
@@ -63,7 +63,7 @@ async function generateBoilerplate(): Promise<void> {
     const cmdArgs = await askCmdArgs();
     const spinner = createSpinner().start();
 
-    headerFiles.forEach((header: any) => {
+    headerFiles.forEach((header) => {
         template += `#include <${header}>\n`;
     });
     
