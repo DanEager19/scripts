@@ -1,23 +1,18 @@
 
-White Team - Inject
-
+### White Team - Inject
+### \[Date\]
 ![alt](imageurl)
 
 ---
 
 ## MEMO
 
-**To:** Security Teams<br>
-**From:** \[Name\]<br>
-**Date:** \[Date\]<br>
-**RE:** \[Topic\]
+**To:** Security Teams<br>**From:** \[Name\]<br>**Date:** \[Date\]<br>**RE:** \[Topic\]
 
 Hello!
-<br><br>
+
 \[Content\]
-<br><br>
+
 \[Deadline\]
-<br><br>
-Best,
-<br>
-\[Name\]
+
+Best,<br>\[Name\]
