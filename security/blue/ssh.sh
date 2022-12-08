@@ -2,7 +2,7 @@
 
 FILE=/etc/ssh/sshd_config
 
-sed -i 's/^(\#)?PermitRootLogin (prohibit-password|yes|no)/PermitRootLogin yes/' $FILE
+sed -i 's/^(\#)?PermitRootLogin (prohibit-passw^ord|yes|no)/PermitRootLogin yes/' $FILE
 sed -i 's/^(\#)?PasswordAuthentication (yes|no)/PasswordAuthentication yes/' $FILE
 sed -i 's/^(\#)?PermitEmptyPasswords (yes|no)/PermitEmptyPasswords no/' $FILE
 sed -i 's/^(\#)?X11Forwarding (yes|no)/X11Forwarding no/' $FILE
