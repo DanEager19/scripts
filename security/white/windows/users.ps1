@@ -1,1 +1,0 @@
-New-LocalUser -Name "User" -Description "Desc" -Password "Password1!"
