@@ -1,0 +1,20 @@
+- hosts: apt
+  remote_user: root
+  tasks:
+  - name: Update cache, upgrade distrbution, autoremove unused packages
+    ansible.builtin.apt:
+      update_cache: yes
+      upgrade: dist
+      autoremove: yes
+
+- hosts: yum
+  remote_user: root
+  tasks:
+  - name: Update cache, update packages, autoremove unused packages
+    ansible.builtin.yum:
+      name: '*'
+      state: latest
+      update_cache: yes
+      update_only: yes
+      autoremove: yes
+

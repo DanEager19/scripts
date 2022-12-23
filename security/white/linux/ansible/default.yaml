@@ -1,6 +1,0 @@
-- name: default-playbook
-  hosts: linux-machines
-  remote_user: root
-  
-  tasks:
-  - name: 
