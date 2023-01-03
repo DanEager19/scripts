@@ -1,5 +1,11 @@
 #!/bin/bash
-#Run with sudo
+
+#Check for root access
+if [[ $EUID -ne 0 ]]; then
+    echo "This script needs root access"
+    exit 1
+fi
+
 apt-get install ca-certificates gnupg lsb-release curl -y
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
