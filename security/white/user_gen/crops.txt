@@ -1,0 +1,341 @@
+Abaca 
+Alfalfa
+Almond
+Anise seeds
+Apple
+Apricot
+Areca 
+Arracha
+Arrowroot
+Artichoke
+Asparagus
+Avocado
+Bajra 
+Bambara groundnuts
+Banana
+Barley
+Bean
+Phaseolus vigna 
+Beet
+Bergamot
+Betel nut
+Blackberry
+Rubus 
+Black pepper
+Black wattle
+Blueberry
+Vaccinium 
+Brazil nut
+Breadfruit
+Broad bean
+Broccoli
+Brassica oleracea botrytis
+Broom millet
+Broom sorghum
+Brussels sprouts
+Brassica oleracea gemmifera
+Buckwheat
+Cabbage 
+Brassica oleracea capitata
+Cabbage
+Brassica 
+Cacao 
+Cantaloupe
+Caraway seeds
+Cardamom
+Cardoon
+Carob
+Carrot
+Cashew nuts
+Cassava 
+Castor bean
+Cauliflower
+Celeriac
+Celery
+Chayote
+Cherry 
+Prunus 
+Chesnut
+Chickpea 
+Chicory
+Chilly
+Capsicum 
+Chinese cabbage
+Cinnamon
+Citronella
+Citron
+Clementine
+Clover
+Trifolium 
+Clove
+Cocoa 
+Coconut
+Cocoyam
+Colocasia 
+Coffee
+Coffee 
+Cola
+Cola 
+Colza 
+Corn 
+Corn salad
+Cotton
+Gossypium 
+Cottonseed
+Cowpea
+Cranberry
+Cress
+Cucumber
+Currants
+Ribes 
+Custard apple
+Dasheen
+Dates
+Drumstick tree
+Dry
+Phaseolus 
+Dry broad bean
+Dry chilli
+Dry garlic
+Dry onion
+Dry pea
+Dry pepper
+Durum wheat
+Durra 
+Earth pea 
+Edo 
+Xanthosoma 
+Eggplant
+Endive
+Esparto grass
+Fennel
+Fenugreek
+Fig
+Filbert 
+Fique
+Flax
+Fodder beet 
+Formio 
+Garlic
+Geranium
+Pelargonium 
+Ginger
+Gooseberry
+Gourd
+Langenaria 
+Gram pea 
+Grapefruit
+Grape
+Grapes
+Grass esparto
+Grass
+Green garlic
+Green onion
+Groundnut 
+Guava
+Guinea corn 
+Hazelnut 
+Hemp fibre
+Hemp
+Hempseed
+Henequen
+Henna
+Hop
+Horse bean
+Horseradish
+Hybrid maize
+Indigo
+Jasmine
+Jasminum 
+Jerusalem artichoke
+Jute
+Corchorus 
+Jowar 
+Kale
+Brassica oleracea acephala
+Kapok
+Kenaf
+Kohlrabi
+Brassica oleracea gongylodes
+Lavender
+Lavandula 
+Leek
+Lemon
+Lemon grass
+Lentil
+Lespedeza
+Lespendeza 
+Lettuce
+Liquorice
+Lime
+Linseed 
+Litchi
+Loquat
+Lupine
+Lupinus 
+Macadamia 
+Mace
+Maguey
+Maize 
+Maize
+Mandarin
+Mangel 
+Mango
+Manila hemp 
+Manioc 
+Maslin 
+Mixture
+Medlar
+Melon
+Millet
+Millet broom
+Pennisetum americanum
+Mint
+Mentha 
+Mulberry
+Morus 
+Mushrooms
+Agaricus 
+Mustard
+Brassica nigra
+Nectarine
+New Zealand flax 
+Niger seed
+Nutmeg
+Oats
+Avena 
+Oil palm
+Okra
+Olive
+Onion
+Onion seed
+Opium
+Orange
+Orchard grass
+Ornamental plants
+Palm
+Metroxylon 
+Palmyra palm
+Papaya 
+Parsnip
+Peach
+Peanut 
+Pear
+Pea
+Pecan nut
+Pepper
+Persimmon
+Diospyros kaki
+Pigeon pea
+Pimento
+Pineapple
+Pistachio nut
+Pistacia 
+Plantain
+Plum
+Pomegranate
+Pomelo
+Poppy seed
+Potato
+Prune
+Pumpkin
+Cucurbita 
+Pyrethum
+Quebracho
+Aspidosperma 
+Queensland nut 
+Quince
+Quinine
+Cinchona 
+Quinoa
+Radish
+Raphanus sativus 
+Ramie
+Rapeseed 
+Raspberry
+Red beet
+Red cabbage
+Redtop
+Agrostis 
+Rhea
+Rhubarb
+Rheum 
+Rice
+Oryza sativa
+Rose
+Rose 
+Rubber
+Rutabaga or swede
+Rye
+Ryegrass seed
+Lolium 
+Safflower seed
+Sago palm
+Sainfoin
+Salad
+Salsify
+Sapodilla
+Satsuma
+Savoy cabbage
+Brassica ileracea capitata
+Scorzonera
+Sesame
+Shea butter
+Sisal
+Sorghum
+Sour lime
+Soybean
+Soybean hay
+Spelt
+Spinach
+Spring barley
+Spring rye
+Spring wheat
+Sprouts
+Squash
+Strawberry
+Fragaria 
+Sudan grass
+Sorghum bicolor Sudanense
+Sugar beet
+Sugarcane
+Sunflower
+Sunhemp
+Swede 
+Swede
+Sweet corn
+Sweet lime
+Sweet pepper
+Sweet potato
+Sweet sorghum
+Tangerine
+Tannia
+Tapioca 
+Taro
+Tea
+Teff
+Timothy
+Tobacco
+Tomato
+Trefoil
+Lotus 
+Tung tree
+Aleurites 
+Turnip
+Urena 
+Vanilla
+Vetch
+Walnut
+Juglans 
+Watermelon
+Wattle
+Wheat
+Triticum 
+White cabbage
+Winter barley
+Hordeum 
+Winter rye
+Winter wheat
+Yams
+Dioscorea 
+Yerba mate
