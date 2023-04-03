@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-user_limit = 100
+user_limit = 1000
 first_name_file = "firstnames.txt"
 last_name_file = "crops.txt"
 
@@ -29,9 +29,9 @@ for i in 1..user_limit
     last_name = last_names[rand(last_name_index)]
 
     full_name = "#{first_name} #{last_name}"
-    user_name = "#{first_name[0].downcase}#{last_name.downcase}"
+    user_name = "#{first_name.downcase}#{last_name.downcase}"
     
-    names.push("#{full_name}, #{user_name}")
+    names.push("#{full_name},#{user_name}")
 end
 
 names.uniq!
