@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-user_limit = 1000
+user_limit = 386
 first_name_file = "firstnames.txt"
 last_name_file = "crops.txt"
 
