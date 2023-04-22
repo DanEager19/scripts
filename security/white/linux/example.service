@@ -1,17 +1,12 @@
-#!/bin/bash
-
-cat >> /etc/systemd/system/service.service << EOF
 [Unit]
 Description
 Wants=network.target
 After=network.target
 
 [Service]
-User=
-WorkingDirectory=
-ExecStart=
+User=root
+ExecStart=/usr/bin/ls
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
-EOF
